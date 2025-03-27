@@ -10,26 +10,17 @@ This project collects data from financial APIs, processes it in real time using 
 
 ## ⚙️ Installation and Running the Project
 
-### 🔹 1. Install Required Dependencies
+### 🔹 Install Required Dependencies
 
 Before running the project, make sure you have installed:
 - **Docker** and **Docker Compose** ([Install Docker](https://docs.docker.com/get-docker/))
 - **Python 3.10+** ([Download Python](https://www.python.org/downloads/))
 - **Git** ([Install Git](https://git-scm.com/downloads))
 
-### 🔹 2. Clone the Repository
-```bash
- git clone https://github.com/your_username/finance-analyzer.git
- cd finance-analyzer
-```
 
-### 🔹 3. Start Docker Containers
-```bash
- docker-compose up --build
-```
 This process will launch all services, including Kafka, Spark, databases, and the web interface for visualization.
 
-### 🔹 4. Check if Everything is Running
+### 🔹 Check if Everything is Running
 After successful startup, open your browser and go to:
 ```
 http://localhost:5000
