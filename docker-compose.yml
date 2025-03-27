@@ -1,0 +1,45 @@
+version: '3'
+services:
+  ingestion_service:
+    build: ./ingestion_service
+    depends_on:
+      - kafka
+
+  processing_service:
+    build: ./processing_service
+    depends_on:
+      - kafka
+      - spark
+
+  storage_service:
+    build: ./storage_service
+    depends_on:
+      - cassandra
+      - postgres
+
+  analysis_service:
+    build: ./analysis_service
+
+  visualization_service:
+    build: ./visualization_service
+    ports:
+      - "5000:5000"
+
+  kafka:
+    image: wurstmeister/kafka:latest
+    environment:
+      KAFKA_ADVERTISED_LISTENER: INSIDE:9093
+      KAFKA_LISTENER_SECURITY_PROTOCOL: PLAINTEXT
+      KAFKA_LISTENER_NAME: INSIDE
+      KAFKA_LISTENER_PORT: 9093
+      KAFKA_LISTENER_MODE: BROKER
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    ports:
+      - "9093:9093"
+      
+  zookeeper:
+    image: wurstmeister/zookeeper:latest
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+    ports:
+      - "2181:2181"
