@@ -10,17 +10,26 @@ This project collects data from financial APIs, processes it in real time using 
 
 ## ⚙️ Installation and Running the Project
 
-### 🔹 Install Required Dependencies
+### 🔹 1. Install Required Dependencies
 
 Before running the project, make sure you have installed:
 - **Docker** and **Docker Compose** ([Install Docker](https://docs.docker.com/get-docker/))
 - **Python 3.10+** ([Download Python](https://www.python.org/downloads/))
 - **Git** ([Install Git](https://git-scm.com/downloads))
 
+### 🔹 2. Clone the Repository
+```bash
+ git clone https://github.com/your_username/financial-data-processing.git
+ cd finance-analyzer
+```
 
+### 🔹 3. Start Docker Containers
+```bash
+ docker-compose up --build
+```
 This process will launch all services, including Kafka, Spark, databases, and the web interface for visualization.
 
-### 🔹 Check if Everything is Running
+### 🔹 4. Check if Everything is Running
 After successful startup, open your browser and go to:
 ```
 http://localhost:5000
@@ -32,7 +41,7 @@ Here, you can view financial data analytics and graphs.
 ## 📂 Project Structure
 
 ```
-finance-analyzer/
+financial-data-processing/
 │
 ├── ingestion_service/             # Collects data from APIs (Alpha Vantage, Yahoo Finance)
 │   ├── data_collector.py         # Data collection logic
@@ -106,5 +115,19 @@ finance-analyzer/
 ```bash
  docker exec -it postgres_container_name psql -U username -d finance_db
 ```
+
+---
+
+## 🎯 Future Improvements
+
+✅ Add support for new financial APIs
+✅ Improve prediction algorithms using neural networks
+✅ Expand the interface with customizable graphs
+
+---
+
+## 📢 Authors
+- **[Aleksandr Senin]** – Project Developer
+- **[GitHub Repository](https://github.com/AleksSenin/financial-data-processing.git)**
 
 
